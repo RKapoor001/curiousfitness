@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CuriousFitness: Know Your Body</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#43cea2">
+</head>
+<body>
+
+  <div class="app-border"></div>
+
+  <!-- Logo on top-left -->
+  <img src="curiousfitness_logo.jpeg" alt="Curious Fitness Logo" class="top-logo">
+
+  <!-- Header section -->
+  <div class="header-section fade-in">
+    <img src="curiousfitness_main.jpeg" alt="Curious Fitness Title" class="title-image">
+    <h2 class="subtitle">💪 Know Your Body 💪</h2>
+  </div>
+
+  <!-- Main button section -->
+  <div class="button-container fade-in">
+    <div class="info-box">
+      <button class="main-btn gradient-btn" data-link="bmi.html">
+        Body Mass Index (BMI)
+        <span class="info-icon" onclick="showInfo('bmi')">i</span>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <button class="main-btn gradient-btn" data-link="bfp.html">
+        Body Fat Percentage (BFP)
+        <span class="info-icon" onclick="showInfo('bfp')">i</span>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <button class="main-btn gradient-btn" data-link="whtr.html">
+        Waist-to-Height Ratio (WHtR)
+        <span class="info-icon" onclick="showInfo('whtr')">i</span>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <button class="main-btn gradient-btn" data-link="whr.html">
+        Weight-to-Hip Ratio (WHR)
+        <span class="info-icon" onclick="showInfo('weightHip')">i</span>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <button class="main-btn gradient-btn" data-link="bmr.html">
+        Basal Metabolic Rate (BMR)
+        <span class="info-icon" onclick="showInfo('bmr')">i</span>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <button class="main-btn more-btn" data-link="more.html">MORE</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<p class="footer-text">Made by - Rudra Kapoor ft. GPT</p>
+<a href="intro.html" class="footer-link" id="introFooterLink">About Me</a>
+
+  <!-- JS file -->
+  <script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('Service Worker registered', reg))
+      .catch(err => console.log('Service Worker registration failed:', err));
+  });
+}
+</script>
+</body>
+</html>
