@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideal Body Weight | CuriousFitness</title>
+  <style>
+body {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #EDD929;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+h1 {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 48px;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #FFFFFF;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  border: 3px solid #F7F7F7;
+  box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+  width: 340px;
+}
+
+label {
+  display: block;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #F7F7F7;
+  background-color: #FFFFFF;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #6FB5FF;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #3A92FF;
+  transform: scale(1.05);
+}
+
+.back {
+  margin-top: 20px;
+  color: #F7F7F7;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.back:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ======== POPUP ======== */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  color: #000000;
+}
+
+.close {
+  color: red;
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+  </style>
+</head>
+<body>
+  <h1>💪 Curious Fitness 💪</h1>
+  <h2>Ideal Body Weight (IBW) Calculator</h2>
+
+  <div class="container">
+    <label for="gender">Gender</label>
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label for="height">Height (cm)</label>
+    <input type="number" id="height" placeholder="Enter your height in cm">
+
+    <button onclick="calculateIBW()">Calculate IBW</button>
+  </div>
+
+  <a href="more.html" class="back">← Back to More Calculators</a>
+
+  <!-- POPUP -->
+  <div id="resultPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h3>Your Ideal Body Weight</h3>
+      <p id="ibwValue">IBW: -- kg</p>
+      <p id="ibwCategory">Category: --</p>
+    </div>
+  </div>
+
+  <script>
+function calculateIBW() {
+  const gender = document.getElementById("gender").value;
+  const height = parseFloat(document.getElementById("height").value);
+
+  if (!height || height <= 0) {
+    alert("Please enter a valid height!");
+    return;
+  }
+
+  let ibw;
+  if (gender === "male") {
+    ibw = 50 + 0.9 * (height - 152);
+  } else {
+    ibw = 45.5 + 0.9 * (height - 152);
+  }
+  const ibwRounded = ibw.toFixed(1);
+
+  let category = "";
+  if (ibwRounded < 50) category = "Below Average";
+  else if (ibwRounded <= 70) category = "Average";
+  else category = "Above Average";
+
+  document.getElementById("ibwValue").innerText = `IBW: ${ibwRounded} kg`;
+  document.getElementById("ibwCategory").innerText = `Category: ${category}`;
+
+  document.getElementById("resultPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("resultPopup").style.display = "none";
+}
+
+// Fade in page
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('fade-in');
+});
+  </script>
+</body>
+</html>
