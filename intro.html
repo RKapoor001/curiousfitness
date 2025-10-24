@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Rudra Kapoor | CuriousFitness</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Abhaya Libre', serif;
+      text-align: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+      border: 5px solid #F7F7F7;
+      box-sizing: border-box;
+      opacity: 0;
+      animation: fadeInPage 0.5s forwards;
+    }
+
+    /* Top-left logo */
+    .top-logo {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 80px;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .top-logo:hover {
+      transform: scale(1.08);
+    }
+
+    /* Name Section */
+    .name-section {
+      margin-top: 120px;
+      margin-bottom: 40px;
+    }
+    .name-section h1 {
+      font-size: 4em;
+      color: #EDD929;
+      margin-bottom: 15px;
+    }
+    .name-section h2 {
+      font-size: 1.5em;
+      color: #fff;
+      font-weight: normal;
+    }
+
+    /* Achievements Container */
+    .achievements-container {
+      max-width: 700px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      border: 2px solid #F7F7F7;
+      text-align: left;
+    }
+    .achievements-container h3 {
+      color: #EDD929;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    .achievements-container ul {
+      list-style: inside square;
+      padding-left: 0;
+    }
+    .achievements-container li {
+      color: #fff;
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #EDD929;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #EDD929;
+      color: #000;
+    }
+
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="curiousfitness_logo.jpeg" alt="Curious Fitness Logo" class="top-logo">
+
+  <!-- Name Section -->
+  <div class="name-section">
+    <h1>Rudra Kapoor</h1>
+    <h2>“A 15-year-old aspiring Tech & AI innovator and fitness enthusiast”</h2>
+  </div>
+
+  <!-- Achievements Section -->
+  <div class="achievements-container">
+    <h3>Achievements / Info</h3>
+    <ul>
+      <li>Interest in Computer Science and AI</li>
+      <li>CBSE Class Topper in Middle and High School(Avg %age of 98.41%)</li>
+      <li>32 Gold Medals,2 Silver Medals,2 Bronze medals in Silverzone's International Olympiads</li>
+      <li>Zonal Topper in STEM Olympiad,2 times National Topper in Science and Talent Hunt Olympiads</li>
+      <li>AIR 24 and AIR 17 in National Level SCORE exam</li>
+      <li>NMTC 2025 qualified</li>
+      <li>IOQM 2025 qualified</li>
+      <li>IOQM 2024 and IOQM 2025 National Top 10%</li>
+    </ul>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+
+  <script>
+    // Fade-in page on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('fade-in');
+    });
+  </script>
+</body>
+</html>
